@@ -1,0 +1,94 @@
+### token检验
+
+POST https://api-pre.coinbull.io/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-Client-Type: PC
+exch-Device-ID: 55c52ff5f5eebb59545212e43fd1765a9ee7592aaca313385b53a7e0d0e9145d
+exch-id: 1
+exch-language: zh_CN
+exch-token: cf75b1a47bd139ef713dd74bb4289aae1d0a05d635f3e4804f246a5f3fcc997d
+trust-sign: 49cfb99d03a0b344e7167cab3f666b638d15ccba
+
+{
+  "app_id": "1726792569",
+  "timestamp": "2564528954",
+  "token": "cf75b1a47bd139ef713dd74bb4289aae1d0a05d635f3e4804f246a5f3fcc997d"
+}
+
+### 资产
+
+POST https://api-pre.coinbull.io/v3/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+### 划转-出
+
+POST https://api-pre.coinbull.io/v3/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: 5045d1d885eeb5d86a315794f07c2ab2fc619ddd7bd07bb2512bd6bc402c59e9
+
+{
+  "symbol": "BTC",
+  "amount": "11",
+  "fromType": "3",
+  "toType": "5"
+}
+
+### 划转-入
+
+POST https://api-pre.coinbull.io/v3/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: c5924f6df0e97697385c80d757bf9226c8d8ff2e735027877d338b69fb3265b4
+
+{
+  "symbol": "BTC",
+  "amount": "8",
+  "fromType": "5",
+  "toType": "3"
+}
+
+###
+
+POST https://api-pre.coinbull.io/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-Client-Type: PC
+exch-Device-ID: 8f0ab42caa1d619492594f412b1dc3f41fb4e6470bdfd8d4dcc9e7ed5b55f8f1
+exch-id: 1
+exch-language: zh_CN
+exch-token: d4110d3168f0f863f8582cf3b97539ff76f890ad747c519d1b4804998e9350a2
+trust-sign: c7f1c45965c3186eacfbf81c1dfa30bf94c5056b
+#trust-source:
+
+{
+  "app_id": "1726792569",
+  "token": "d4110d3168f0f863f8582cf3b97539ff76f890ad747c519d1b4804998e9350a2",
+  "timestamp": 1605076383
+}
+
+###

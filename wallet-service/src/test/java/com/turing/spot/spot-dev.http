@@ -1,0 +1,72 @@
+### token检验
+
+POST http://api.dev.rooidea.com/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: d6d609d09a277a9c27faf82c238f05fba9984fb7
+
+{
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954"
+}
+
+### 资产
+
+POST http://api.dev.rooidea.com/v3/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+### 划转-出
+
+POST http://api.dev.rooidea.com/v3/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: b9bfe1fd139b4bc9cf7752fe7d7590e0c98e23876c87b56fecf31f5f170ac1fe
+
+{
+  "symbol": "LINK",
+  "amount": "11",
+  "fromType": "3",
+  "toType": "5"
+}
+
+### 划转-入
+
+POST http://api.dev.rooidea.com/v3/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: c5924f6df0e97697385c80d757bf9226c8d8ff2e735027877d338b69fb3265b4
+
+{
+  "symbol": "BTC",
+  "amount": "8",
+  "fromType": "5",
+  "toType": "3"
+}
+
+###

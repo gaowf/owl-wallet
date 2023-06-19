@@ -1,0 +1,82 @@
+### 流水类型
+
+POST http://127.0.0.1:2312/spot/accountTransaction
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "6ba390529ef8e0454b27453a8dc4ac65f6d26838",
+  "timestamp": "1603853803"
+}
+
+###
+POST http://127.0.0.1:2312/spot/accountTransaction
+Content-Type: application/json;charset=utf-8
+exch-timestamp: 1604040627
+exch-id: 1
+app-version: 1.2.3
+exch-language: zh_CN
+exch-Client-Type: Android
+exch-token: 2d4d26eb4f79d1297169c0157d98d937f0b4cdc0de6d20f131559ea8db872431
+exch-Device-ID: fa37f121-1d93-332e-98a2-659e1f48cf77
+exch-signature: 263420db0bd158bb735df9e7a3738a65661114664c325811166307c5150454f5
+
+{
+  "endTime": "2020-10-30T14:50:20",
+  "beginTime": "2020-10-23T14:50:20",
+  "pageNum": "1",
+  "scene": "transfer",
+  "currency": "ETH",
+  "pageSize": "30"
+}
+
+###
+POST https://test-1.wbfutures.cc/inner/spot/accountTransaction
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+#exch-Device-ID: testid
+#exch-id: 1
+trust-sign: 07f5ac5d839c1d9a4cacbd897e36fbb6696092fa
+trust-uid: 100301466407
+
+{
+  "app_id": "1597657007",
+  "beginTime": "2020-10-23T14:50:20",
+  "currency": "ETH",
+  "endTime": "2020-10-30T14:50:20",
+  "pageNum": 1,
+  "pageSize": 30,
+  "scene": "transfer",
+  "timestamp": "1604041192",
+  "uid": "100301466407"
+}
+
+
+### token检验
+
+POST http://api.dev.rooidea.com/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: 4447e2b7b4096644b28ff1fb5a2b3135eb1cc912f79ccae4d81c7236b12f8e94
+exch-Device-ID: testid1
+exch-id: 1
+trust-source: 23232
+trust-sign: d6d609d09a277a9c27faf82c238f05fba9984fb7
+
+{
+  "token": "4447e2b7b4096644b28ff1fb5a2b3135eb1cc912f79ccae4d81c7236b12f8e94",
+  "app_id": "1597657007",
+  "timestamp": "2564528954"
+}
+
+###
+

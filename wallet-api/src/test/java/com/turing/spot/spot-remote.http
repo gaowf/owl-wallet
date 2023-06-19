@@ -1,0 +1,140 @@
+###  https://test-1.wbfutures.cc/inner/spot/transferIn
+### 1.资产查询
+
+POST https://test-1.wbfutures.cc/inner/spot/accountOne
+Content-Type: application/json
+trust-sign: d184a30178e1c299a48449161a8bf2a19275f30f
+trust-uid: 1234
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "timestamp": "1603938647",
+  "uid": "1234"
+}
+
+### 2.资产查询-列表
+
+POST https://test-1.wbfutures.cc/inner/spot/accountList
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 0e2a137e2b7c5bef1a15d8a9e758fbdb335df271
+trust-uid: 1234
+
+{
+  "app_id": "1597657007",
+  "sign": "0e2a137e2b7c5bef1a15d8a9e758fbdb335df271",
+  "timestamp": "1603851083",
+  "uid": "1234"
+}
+
+### 3.token失效
+
+POST https://test-1.wbfutures.cc/inner/spot/token/expire
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 966179780d5c98b965d17864cd9713e21776a885
+trust-uid: 1234
+
+{
+  "app_id": "1597657007",
+  "sign": "2f7defb54534275037a39b8514137c2b23135139",
+  "timestamp": "1603790761",
+  "token": "spotTest",
+  "uid": "1234"
+}
+
+### 4.划入
+
+POST https://test-1.wbfutures.cc/inner/spot/transferIn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: d8ab9048f81dbc88db6670fbdc8c66d2ab3d0fe8
+trust-uid: 1234
+
+{
+  "amount": "11",
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "d8ab9048f81dbc88db6670fbdc8c66d2ab3d0fe8",
+  "timestamp": "1604023224",
+  "trade_no": "tes12456",
+  "uid": "1234"
+}
+
+### 5.划出
+
+POST https://test-1.wbfutures.cc/inner/spot/transferOut
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: f4f9e5fdfb2db5fe47416ec8aa1fc8e93d1fc258
+trust-uid: 1234
+
+{
+  "amount": "11",
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "f4f9e5fdfb2db5fe47416ec8aa1fc8e93d1fc258",
+  "timestamp": "1603854100",
+  "trade_no": "2222",
+  "uid": "1234"
+}
+
+### 6.流水
+
+POST https://test-1.wbfutures.cc/inner/spot/accountTransaction
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 6ba390529ef8e0454b27453a8dc4ac65f6d26838
+trust-uid: 1234
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "6ba390529ef8e0454b27453a8dc4ac65f6d26838",
+  "timestamp": "1603853803"
+}
+
+### 7.撤销
+
+POST https://test-1.wbfutures.cc/inner/spot/transferCancel
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 51416506cd4bb7a00d79c2c3867efb75c52eb707
+trust-uid: 1234
+
+{
+  "app_id": "1597657007",
+  "sign": "51416506cd4bb7a00d79c2c3867efb75c52eb707",
+  "timestamp": "1603854298",
+  "trade_no": "111",
+  "uid": "1234"
+}
+
+###
+
+

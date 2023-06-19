@@ -1,0 +1,97 @@
+### 本地: http://127.0.0.1:2312
+### 测试: http://api.dev.rooidea.com
+### token检验
+
+POST http://api.dev.rooidea.com/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: d6d609d09a277a9c27faf82c238f05fba9984fb7
+
+{
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954"
+}
+
+### 资产
+
+POST http://api.dev.rooidea.com/v2/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+### token失效
+
+POST https://test-1.wbfutures.cc/api-x/spot/token/expire
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 2f7defb54534275037a39b8514137c2b23135139
+trust-uid: 11
+
+{
+  "app_id": "1597657007",
+  "sign": "2f7defb54534275037a39b8514137c2b23135139",
+  "timestamp": "1603790761",
+  "token": "234343",
+  "uid": "1234"
+}
+
+### 划入
+
+POST https://test-1.wbfutures.cc/api-x/spot/transferIn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: d8ab9048f81dbc88db6670fbdc8c66d2ab3d0fe8
+trust-uid: 11
+
+{
+  "amount": "11",
+  "app_id": "1597657007",
+  "currency": "USDT",
+  "sign": "d8ab9048f81dbc88db6670fbdc8c66d2ab3d0fe8",
+  "timestamp": "1603794641",
+  "trade_no": "11111",
+  "uid": "1234"
+}
+
+### 划转
+
+POST http://api.dev.rooidea.com/v2/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "symbol": "BTF",
+  "amount": "11",
+  "fromType": "3",
+  "toType": "4"
+}
+
+###

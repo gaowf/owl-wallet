@@ -1,0 +1,146 @@
+###  https://api-stg.krzvpvm.cn/inner/spot/transferIn
+### 1.资产查询
+
+POST https://api-stg.krzvpvm.cn/inner/spot/accountOne
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 049b4bdef92e469d0bd10c5f4323853772ef4f9d
+trust-uid: 777777
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "c1e5470d3587d466cde9b4d3893b2feb59ed7af0",
+  "timestamp": "1603850799",
+  "uid": "777777"
+}
+
+### 2.资产查询-列表
+
+POST https://api-stg.krzvpvm.cn/inner/spot/accountList
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 2e284f547bc78f7018c1e6076c8de88de32692bf
+trust-uid: 777777
+
+{
+  "app_id": "1597657007",
+  "sign": "0e2a137e2b7c5bef1a15d8a9e758fbdb335df271",
+  "timestamp": "1603851083",
+  "uid": "777777"
+}
+
+### 3.token失效
+
+POST https://api-stg.krzvpvm.cn/inner/spot/token/expire
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+#exch-Device-ID: testid
+exch-id: 1
+trust-sign: b605016f94bad437c534fc4d8883f1bc017b8b92
+trust-uid: 777777
+
+{
+  "app_id": "1597657007",
+  "sign": "2f7defb54534275037a39b8514137c2b23135139",
+  "timestamp": "1603790761",
+  "token": "spotTest",
+  "uid": "777777"
+}
+
+### 4.划入
+
+POST https://api-stg.krzvpvm.cn/inner/spot/transferIn
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 72a627c504f96510c3615d97d29c1b0c09667cae
+trust-uid: 777777
+
+{
+  "amount": "99",
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "d8ab9048f81dbc88db6670fbdc8c66d2ab3d0fe8",
+  "timestamp": "1603794641",
+  "trade_no": "a12345",
+  "uid": "777777"
+}
+
+### 5.划出
+
+POST https://api-stg.krzvpvm.cn/inner/spot/transferOut
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: 677d2c189c756a7e8a106307f402943239af38d3
+trust-uid: 777777
+
+{
+  "amount": "3",
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "f4f9e5fdfb2db5fe47416ec8aa1fc8e93d1fc258",
+  "timestamp": "1603854100",
+  "trade_no": "112323dfd",
+  "uid": "777777"
+}
+
+### 6.流水
+
+POST https://api-stg.krzvpvm.cn/inner/spot/accountTransaction
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+#exch-token: spotTest
+#exch-Device-ID: testid
+#exch-id: 1
+trust-sign: caa55361c957948e1f498eadd0871a4e961e80e5
+trust-uid: 777777
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "6ba390529ef8e0454b27453a8dc4ac65f6d26838",
+  "timestamp": "1603853803"
+}
+
+### 7.撤销
+
+POST https://api-stg.krzvpvm.cn/inner/spot/transferCancel
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: a14f1038be9b5b4dd3c0a1982350003e6ffe5ce6
+trust-uid: 777777
+
+{
+  "app_id": "1597657007",
+  "sign": "51416506cd4bb7a00d79c2c3867efb75c52eb707",
+  "timestamp": "1603854298",
+  "trade_no": "a1234",
+  "uid": "777777"
+}
+
+###
+
+

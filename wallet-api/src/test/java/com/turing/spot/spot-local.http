@@ -1,0 +1,109 @@
+### token检验
+
+POST http://127.0.0.1:2312/spot/token/check
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest1
+exch-Device-ID: testid
+exch-id: 1
+trust-sign: d6d609d09a277a9c27faf82c238f05fba9984fb7
+
+{
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954"
+}
+
+### 资产
+
+POST http://127.0.0.1:2312/v2/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+### 划转-出
+
+POST http://127.0.0.1:2312/v2/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: 451bfb8fb888478159877cae1e827c1e7b3743af3418954cd500fa67b02089c2
+
+{
+  "symbol": "ETH",
+  "amount": "11",
+  "fromType": "3",
+  "toType": "5"
+}
+
+### 划转-入
+
+POST http://127.0.0.1:2312/v2/asset/transfer
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+exch-signature: c5924f6df0e97697385c80d757bf9226c8d8ff2e735027877d338b69fb3265b4
+
+{
+  "symbol": "USDT",
+  "amount": "11",
+  "fromType": "5",
+  "toType": "3"
+}
+
+### 流水类型
+
+POST http://127.0.0.1:2312/spot/accountSceneList
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+### 流水类型
+
+POST http://127.0.0.1:2312/spot/accountTransaction
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "app_id": "1597657007",
+  "currency": "BTC",
+  "sign": "6ba390529ef8e0454b27453a8dc4ac65f6d26838",
+  "timestamp": "1603853803"
+}
+
+###
+
+

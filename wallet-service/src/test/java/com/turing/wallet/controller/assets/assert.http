@@ -1,0 +1,35 @@
+POST http://127.0.0.1:2312/v2/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+###
+
+POST http://api.dev.rooidea.com/v2/asset/info
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+exch-token: spotTest
+exch-Device-ID: testid
+exch-id: 1
+
+{
+  "uid": "777777",
+  "token": "spotTest",
+  "app_id": "1597657007",
+  "timestamp": "2564528954",
+  "sign": "e100aee878d86dbd0a3acdc380b61041ef6043ff"
+}
+
+###

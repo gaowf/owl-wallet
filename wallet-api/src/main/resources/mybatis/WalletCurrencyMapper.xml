@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.turing.wallet.mapper.WalletCurrencyMapper">
+  <resultMap id="BaseResultMap" type="com.turing.wallet.model.WalletCurrency">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="currency_code" jdbcType="VARCHAR" property="currencyCode" />
+    <result column="icon_address" jdbcType="VARCHAR" property="iconAddress" />
+    <result column="chain_id" jdbcType="BIGINT" property="chainId" />
+    <result column="chain_name" jdbcType="VARCHAR" property="chainName" />
+    <result column="chain_show_name" jdbcType="VARCHAR" property="chainShowName" />
+    <result column="chain_protocol" jdbcType="VARCHAR" property="chainProtocol" />
+    <result column="wallet_currency_name" jdbcType="VARCHAR" property="walletCurrencyName" />
+    <result column="contract_address" jdbcType="VARCHAR" property="contractAddress" />
+    <result column="tag_type" jdbcType="INTEGER" property="tagType" />
+    <result column="tag_address" jdbcType="VARCHAR" property="tagAddress" />
+    <result column="address_regular" jdbcType="VARCHAR" property="addressRegular" />
+    <result column="default_chain" jdbcType="TINYINT" property="defaultChain" />
+    <result column="currency_type" jdbcType="INTEGER" property="currencyType" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="created_at" jdbcType="BIGINT" property="createdAt" />
+    <result column="updated_at" jdbcType="BIGINT" property="updatedAt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, currency_code, icon_address, chain_id, chain_name, chain_show_name, chain_protocol, 
+    wallet_currency_name, contract_address, tag_type, tag_address, address_regular, default_chain, 
+    currency_type, sort, state, created_at, updated_at
+  </sql>
+  <select id="selectByExample" parameterType="com.turing.wallet.model.WalletCurrencyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wallet_currency
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wallet_currency
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wallet_currency
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.turing.wallet.model.WalletCurrencyExample">
+    delete from wallet_currency
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.turing.wallet.model.WalletCurrency" useGeneratedKeys="true">
+    insert into wallet_currency (currency_code, icon_address, chain_id, 
+      chain_name, chain_show_name, chain_protocol, 
+      wallet_currency_name, contract_address, tag_type, 
+      tag_address, address_regular, default_chain, 
+      currency_type, sort, state, 
+      created_at, updated_at)
+    values (#{currencyCode,jdbcType=VARCHAR}, #{iconAddress,jdbcType=VARCHAR}, #{chainId,jdbcType=BIGINT}, 
+      #{chainName,jdbcType=VARCHAR}, #{chainShowName,jdbcType=VARCHAR}, #{chainProtocol,jdbcType=VARCHAR}, 
+      #{walletCurrencyName,jdbcType=VARCHAR}, #{contractAddress,jdbcType=VARCHAR}, #{tagType,jdbcType=INTEGER}, 
+      #{tagAddress,jdbcType=VARCHAR}, #{addressRegular,jdbcType=VARCHAR}, #{defaultChain,jdbcType=TINYINT}, 
+      #{currencyType,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{createdAt,jdbcType=BIGINT}, #{updatedAt,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.turing.wallet.model.WalletCurrency" useGeneratedKeys="true">
+    insert into wallet_currency
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="currencyCode != null">
+        currency_code,
+      </if>
+      <if test="iconAddress != null">
+        icon_address,
+      </if>
+      <if test="chainId != null">
+        chain_id,
+      </if>
+      <if test="chainName != null">
+        chain_name,
+      </if>
+      <if test="chainShowName != null">
+        chain_show_name,
+      </if>
+      <if test="chainProtocol != null">
+        chain_protocol,
+      </if>
+      <if test="walletCurrencyName != null">
+        wallet_currency_name,
+      </if>
+      <if test="contractAddress != null">
+        contract_address,
+      </if>
+      <if test="tagType != null">
+        tag_type,
+      </if>
+      <if test="tagAddress != null">
+        tag_address,
+      </if>
+      <if test="addressRegular != null">
+        address_regular,
+      </if>
+      <if test="defaultChain != null">
+        default_chain,
+      </if>
+      <if test="currencyType != null">
+        currency_type,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="currencyCode != null">
+        #{currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iconAddress != null">
+        #{iconAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chainId != null">
+        #{chainId,jdbcType=BIGINT},
+      </if>
+      <if test="chainName != null">
+        #{chainName,jdbcType=VARCHAR},
+      </if>
+      <if test="chainShowName != null">
+        #{chainShowName,jdbcType=VARCHAR},
+      </if>
+      <if test="chainProtocol != null">
+        #{chainProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="walletCurrencyName != null">
+        #{walletCurrencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAddress != null">
+        #{contractAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tagType != null">
+        #{tagType,jdbcType=INTEGER},
+      </if>
+      <if test="tagAddress != null">
+        #{tagAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addressRegular != null">
+        #{addressRegular,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultChain != null">
+        #{defaultChain,jdbcType=TINYINT},
+      </if>
+      <if test="currencyType != null">
+        #{currencyType,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=BIGINT},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.turing.wallet.model.WalletCurrencyExample" resultType="java.lang.Long">
+    select count(*) from wallet_currency
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update wallet_currency
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.currencyCode != null">
+        currency_code = #{record.currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iconAddress != null">
+        icon_address = #{record.iconAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chainId != null">
+        chain_id = #{record.chainId,jdbcType=BIGINT},
+      </if>
+      <if test="record.chainName != null">
+        chain_name = #{record.chainName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chainShowName != null">
+        chain_show_name = #{record.chainShowName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chainProtocol != null">
+        chain_protocol = #{record.chainProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.walletCurrencyName != null">
+        wallet_currency_name = #{record.walletCurrencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractAddress != null">
+        contract_address = #{record.contractAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagType != null">
+        tag_type = #{record.tagType,jdbcType=INTEGER},
+      </if>
+      <if test="record.tagAddress != null">
+        tag_address = #{record.tagAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressRegular != null">
+        address_regular = #{record.addressRegular,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultChain != null">
+        default_chain = #{record.defaultChain,jdbcType=TINYINT},
+      </if>
+      <if test="record.currencyType != null">
+        currency_type = #{record.currencyType,jdbcType=INTEGER},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=BIGINT},
+      </if>
+      <if test="record.updatedAt != null">
+        updated_at = #{record.updatedAt,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update wallet_currency
+    set id = #{record.id,jdbcType=BIGINT},
+      currency_code = #{record.currencyCode,jdbcType=VARCHAR},
+      icon_address = #{record.iconAddress,jdbcType=VARCHAR},
+      chain_id = #{record.chainId,jdbcType=BIGINT},
+      chain_name = #{record.chainName,jdbcType=VARCHAR},
+      chain_show_name = #{record.chainShowName,jdbcType=VARCHAR},
+      chain_protocol = #{record.chainProtocol,jdbcType=VARCHAR},
+      wallet_currency_name = #{record.walletCurrencyName,jdbcType=VARCHAR},
+      contract_address = #{record.contractAddress,jdbcType=VARCHAR},
+      tag_type = #{record.tagType,jdbcType=INTEGER},
+      tag_address = #{record.tagAddress,jdbcType=VARCHAR},
+      address_regular = #{record.addressRegular,jdbcType=VARCHAR},
+      default_chain = #{record.defaultChain,jdbcType=TINYINT},
+      currency_type = #{record.currencyType,jdbcType=INTEGER},
+      sort = #{record.sort,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER},
+      created_at = #{record.createdAt,jdbcType=BIGINT},
+      updated_at = #{record.updatedAt,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.turing.wallet.model.WalletCurrency">
+    update wallet_currency
+    <set>
+      <if test="currencyCode != null">
+        currency_code = #{currencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iconAddress != null">
+        icon_address = #{iconAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="chainId != null">
+        chain_id = #{chainId,jdbcType=BIGINT},
+      </if>
+      <if test="chainName != null">
+        chain_name = #{chainName,jdbcType=VARCHAR},
+      </if>
+      <if test="chainShowName != null">
+        chain_show_name = #{chainShowName,jdbcType=VARCHAR},
+      </if>
+      <if test="chainProtocol != null">
+        chain_protocol = #{chainProtocol,jdbcType=VARCHAR},
+      </if>
+      <if test="walletCurrencyName != null">
+        wallet_currency_name = #{walletCurrencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAddress != null">
+        contract_address = #{contractAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tagType != null">
+        tag_type = #{tagType,jdbcType=INTEGER},
+      </if>
+      <if test="tagAddress != null">
+        tag_address = #{tagAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addressRegular != null">
+        address_regular = #{addressRegular,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultChain != null">
+        default_chain = #{defaultChain,jdbcType=TINYINT},
+      </if>
+      <if test="currencyType != null">
+        currency_type = #{currencyType,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=BIGINT},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.turing.wallet.model.WalletCurrency">
+    update wallet_currency
+    set currency_code = #{currencyCode,jdbcType=VARCHAR},
+      icon_address = #{iconAddress,jdbcType=VARCHAR},
+      chain_id = #{chainId,jdbcType=BIGINT},
+      chain_name = #{chainName,jdbcType=VARCHAR},
+      chain_show_name = #{chainShowName,jdbcType=VARCHAR},
+      chain_protocol = #{chainProtocol,jdbcType=VARCHAR},
+      wallet_currency_name = #{walletCurrencyName,jdbcType=VARCHAR},
+      contract_address = #{contractAddress,jdbcType=VARCHAR},
+      tag_type = #{tagType,jdbcType=INTEGER},
+      tag_address = #{tagAddress,jdbcType=VARCHAR},
+      address_regular = #{addressRegular,jdbcType=VARCHAR},
+      default_chain = #{defaultChain,jdbcType=TINYINT},
+      currency_type = #{currencyType,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=BIGINT},
+      updated_at = #{updatedAt,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
